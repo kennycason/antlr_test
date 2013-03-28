@@ -1,4 +1,4 @@
-// Generated from /home/kenny/simple_syntax/resources/Syntax.g by ANTLR 4.0
+// Generated from /home/destructo/simple_syntax/resources/Syntax.g by ANTLR 4.0
  package antlr.gen; 
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
@@ -15,9 +15,11 @@ public class SyntaxParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		SYNTAX=1, WS=2, TWO_DIGIT=3, ALPHA_DIGITS=4, NUMBER=5;
+		SYNTAX=1, WS=2, TWO_DIGIT=3, ALPHA_DIGIT=4, NUMBER=5, VAR=6, INCREMENT=7, 
+		DECREMENT=8, SET=9;
 	public static final String[] tokenNames = {
-		"<INVALID>", "SYNTAX", "WS", "TWO_DIGIT", "ALPHA_DIGITS", "NUMBER"
+		"<INVALID>", "SYNTAX", "WS", "TWO_DIGIT", "ALPHA_DIGIT", "NUMBER", "VAR", 
+		"INCREMENT", "DECREMENT", "SET"
 	};
 	public static final int
 		RULE_valid = 0;
@@ -94,7 +96,7 @@ public class SyntaxParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\2\3\7\n\4\2\t\2\3\2\6\2\6\n\2\r\2\16\2\7\3\2\2\3\2\2\2\t\2\5\3\2\2\2"+
+		"\2\3\13\n\4\2\t\2\3\2\6\2\6\n\2\r\2\16\2\7\3\2\2\3\2\2\2\t\2\5\3\2\2\2"+
 		"\4\6\7\3\2\2\5\4\3\2\2\2\6\7\3\2\2\2\7\5\3\2\2\2\7\b\3\2\2\2\b\3\3\2\2"+
 		"\2\3\7";
 	public static final ATN _ATN =

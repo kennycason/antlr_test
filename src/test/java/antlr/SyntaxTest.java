@@ -1,5 +1,6 @@
 package antlr;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.antlr.v4.runtime.ANTLRInputStream;
@@ -15,8 +16,12 @@ public class SyntaxTest {
 
 	@Test
 	public void basicTest() {
-		assertTrue(valid("14"));
-		assertTrue(valid("twenty"));
+		assertTrue(valid("@var++"));
+		assertTrue(valid("@var--"));
+		assertTrue(valid("@var = 10"));
+		assertTrue(valid("@var = ten"));
+		assertTrue(valid("@var = @var2"));
+		assertFalse(valid("@var = var2"));
 	}
 
 	public boolean valid(String query) {

@@ -14,7 +14,7 @@ valid : SYNTAX+;
  * LEXER RULES
  *------------------------------------------------------------------*/
 
-SYNTAX : NUMBER+;
+SYNTAX : INCREMENT | DECREMENT | SET;
 
 WS : ( '\t' | ' ' | '\r' | '\n'| '\u000C' )+; // -> skip
 
@@ -22,7 +22,15 @@ fragment DIGIT : [0-9];
 
 TWO_DIGIT : DIGIT DIGIT;
 
-ALPHA_DIGITS : ('one'|'two'|'three'|'four'|'five'|'six'|'seven'|'eight'|'nine'|'ten'
+ALPHA_DIGIT : ('one'|'two'|'three'|'four'|'five'|'six'|'seven'|'eight'|'nine'|'ten'
 |'eleven'|'twelve'|'thirteen'|'fourteen'|'fifteen'|'sixteen'|'seventeen'|'eighteen'|'nineteen'|'twenty');
 
-NUMBER : DIGIT+ | ALPHA_DIGITS;
+NUMBER : DIGIT+ | ALPHA_DIGIT+;
+
+VAR : '@' [a-zA-Z]+;
+
+INCREMENT : VAR WS* '++';
+
+DECREMENT : VAR WS* '--';
+
+SET : VAR WS* '=' WS* (NUMBER | VAR);

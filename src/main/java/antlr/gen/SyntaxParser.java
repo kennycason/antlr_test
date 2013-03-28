@@ -15,11 +15,15 @@ public class SyntaxParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		SYNTAX=1, WS=2, TWO_DIGIT=3, ALPHA_DIGIT=4, NUMBER=5, VAR=6, INCREMENT=7, 
-		DECREMENT=8, SET=9;
+		EXPRESSION=1, WS=2, NL=3, ATOM=4, TWO_DIGIT=5, ALPHA_DIGIT=6, NUMBER=7, 
+		SYMBOL=8, INCREMENT=9, DECREMENT=10, POST_INCREMENT=11, POST_DECREMENT=12, 
+		PRE_INCREMENT=13, PRE_DECREMENT=14, ASSIGN=15, COMPARE=16, LOOP=17, IF=18, 
+		WHILE=19, DO=20;
 	public static final String[] tokenNames = {
-		"<INVALID>", "SYNTAX", "WS", "TWO_DIGIT", "ALPHA_DIGIT", "NUMBER", "VAR", 
-		"INCREMENT", "DECREMENT", "SET"
+		"<INVALID>", "EXPRESSION", "WS", "NL", "ATOM", "TWO_DIGIT", "ALPHA_DIGIT", 
+		"NUMBER", "SYMBOL", "INCREMENT", "DECREMENT", "POST_INCREMENT", "POST_DECREMENT", 
+		"PRE_INCREMENT", "PRE_DECREMENT", "ASSIGN", "COMPARE", "LOOP", "IF", "WHILE", 
+		"DO"
 	};
 	public static final int
 		RULE_valid = 0;
@@ -44,10 +48,10 @@ public class SyntaxParser extends Parser {
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 	public static class ValidContext extends ParserRuleContext {
-		public List<TerminalNode> SYNTAX() { return getTokens(SyntaxParser.SYNTAX); }
-		public TerminalNode SYNTAX(int i) {
-			return getToken(SyntaxParser.SYNTAX, i);
+		public TerminalNode EXPRESSION(int i) {
+			return getToken(SyntaxParser.EXPRESSION, i);
 		}
+		public List<TerminalNode> EXPRESSION() { return getTokens(SyntaxParser.EXPRESSION); }
 		public ValidContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -75,13 +79,13 @@ public class SyntaxParser extends Parser {
 			do {
 				{
 				{
-				setState(2); match(SYNTAX);
+				setState(2); match(EXPRESSION);
 				}
 				}
 				setState(5); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-			} while ( _la==SYNTAX );
+			} while ( _la==EXPRESSION );
 			}
 		}
 		catch (RecognitionException re) {
@@ -96,7 +100,7 @@ public class SyntaxParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\2\3\13\n\4\2\t\2\3\2\6\2\6\n\2\r\2\16\2\7\3\2\2\3\2\2\2\t\2\5\3\2\2\2"+
+		"\2\3\26\n\4\2\t\2\3\2\6\2\6\n\2\r\2\16\2\7\3\2\2\3\2\2\2\t\2\5\3\2\2\2"+
 		"\4\6\7\3\2\2\5\4\3\2\2\2\6\7\3\2\2\2\7\5\3\2\2\2\7\b\3\2\2\2\b\3\3\2\2"+
 		"\2\3\7";
 	public static final ATN _ATN =
